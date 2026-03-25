@@ -29,8 +29,7 @@ WORKDIR /app
 COPY backend ./backend
 
 # Install dependencies with cache mount
-RUN --mount=type=cache,id=backend-cache, target=/root/.cache/uv \
-    sh -c "cd backend && uv sync"
+RUN sh -c "cd backend && uv sync"
 
 # Expose ports (gateway: 8001, langgraph: 2024)
 EXPOSE 8001 2024
